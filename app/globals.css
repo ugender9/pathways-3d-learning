@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+:root {
+  --background: #090d16;
+  --foreground: #f8fafc;
+  --card: #111827;
+  --card-foreground: #f1f5f9;
+  --popover: #0f172a;
+  --popover-foreground: #f8fafc;
+  --primary: #6366f1;
+  --primary-foreground: #ffffff;
+  --secondary: #1e293b;
+  --secondary-foreground: #cbd5e1;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #8b5cf6;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: #1e293b;
+  --ring: rgba(99, 102, 241, 0.5);
+  --radius: 1rem;
+}
+
+* {
+  border-color: var(--border);
+  outline-color: var(--ring);
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* 3D Cyber Perspective Container */
+.perspective-container {
+  perspective: 1500px;
+  transform-style: preserve-3d;
+}
+
+/* 3D Isometric Grid Floor */
+.grid-floor-3d {
+  background-image: 
+    linear-gradient(to right, rgba(99, 102, 241, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+  transform: perspective(600px) rotateX(60deg) translateY(-100px) translateZ(-150px);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+}
+
+/* Ultra Glassmorphism */
+.glass-panel {
+  background: rgba(17, 24, 39, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Holographic Neon Glows */
+.glow-primary {
+  box-shadow: 0 0 35px -5px rgba(99, 102, 241, 0.45);
+}
+
+.glow-pink {
+  box-shadow: 0 0 35px -5px rgba(236, 72, 153, 0.45);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 35px -5px rgba(6, 182, 212, 0.45);
+}
+
+/* 3D Animated Laser Border Beam */
+.border-beam {
+  position: relative;
+}
+.border-beam::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(99, 102, 241, 0.8) 25%,
+    rgba(236, 72, 153, 0.8) 50%,
+    rgba(6, 182, 212, 0.8) 75%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  background-size: 200% 100%;
+  animation: beamMove 4s linear infinite;
+}
+
+@keyframes beamMove {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* 3D Floating Physics */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-2deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes rotateOrbit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.animate-orbit {
+  animation: rotateOrbit 20s linear infinite;
+}
+
+/* Shimmer Skeleton */
+@keyframes shimmerWave {
+  0% { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+
+.animate-shimmer-3d {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  background-size: 600px 100%;
+  animation: shimmerWave 1.8s infinite;
+}
+
+/* Vibrant Gradient Text */
+.gradient-text-3d {
+  background: linear-gradient(135deg, #a5b4fc 0%, #c084fc 35%, #f472b6 70%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-gold-3d {
+  background: linear-gradient(135deg, #fde68a 0%, #f59e0b 50%, #d97706 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Stagger Animations */
+.stagger-3d > *:nth-child(1)  { animation-delay: 0.05s; }
+.stagger-3d > *:nth-child(2)  { animation-delay: 0.10s; }
+.stagger-3d > *:nth-child(3)  { animation-delay: 0.15s; }
+.stagger-3d > *:nth-child(4)  { animation-delay: 0.20s; }
+.stagger-3d > *:nth-child(5)  { animation-delay: 0.25s; }
+.stagger-3d > *:nth-child(6)  { animation-delay: 0.30s; }
+.stagger-3d > *:nth-child(7)  { animation-delay: 0.35s; }
+.stagger-3d > *:nth-child(8)  { animation-delay: 0.40s; }
+.stagger-3d > *:nth-child(9)  { animation-delay: 0.45s; }
+
+/* 3D Tilt Helper Layers */
+.layer-z-10 { transform: translateZ(10px); }
+.layer-z-20 { transform: translateZ(20px); }
+.layer-z-30 { transform: translateZ(30px); }
+.layer-z-40 { transform: translateZ(40px); }
+.layer-z-50 { transform: translateZ(50px); }
